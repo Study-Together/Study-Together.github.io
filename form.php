@@ -32,6 +32,8 @@ if($_POST['formSubmit'] == "Find Study Partners")
 					$varFriTime 	. "\n");
 		fclose($fs);
 		
+		//run recommender app
+		
 		header("Location: recommendations.html");
 		exit;
 	}
