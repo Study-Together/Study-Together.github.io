@@ -15,16 +15,18 @@
 						<div class="inner">
 							<p>The System Recommends The Following Classmates:</p>
 							<div class="container.\31" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; text-align: left; padding-left: 10px;">
-								<p><strong>Name Name</strong></p>
+								<!-- <p><strong>Name Name</strong></p> -->
 								
 								<?php
+									
 								echo "<table>\n\n";
 								$f = fopen("/Users/Nada/Desktop/W17/CS 599 Information Retrieval/Project/Study-Together.github.io/data/recommendations.csv", "r");
 								while (($line = fgetcsv($f)) !== false) {
 								        echo "<tr>";
 								        foreach ($line as $cell) {
-								                echo "<td>" . htmlspecialchars($cell) . "</td>";
+								            echo "<td>" . htmlspecialchars($cell) . "</td>";
 								        }
+								        echo "<td><input type='submit' name='contact' value='contact'></td>" ;
 								        echo "</tr>\n";
 								}
 								fclose($f);

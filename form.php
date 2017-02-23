@@ -3,12 +3,12 @@ if($_POST['formSubmit'] == "Find Study Partners")
 {
 	$errorMessage = "";
 	
+	$varID = $_POST['id'];
 	$varName = $_POST['name'];
 	$varMajor = $_POST['major'];
 	$varSchool = $_POST['school'];
 	$varEmail = $_POST['email'];
 	$varPhone = $_POST['phone'];
-	$varLang = $_POST['language'];
 	$varClass = $_POST['class'];
 	$varNumPartn = $_POST['numPartner'];
 	$varLocationOn = $_POST['location1'];
@@ -22,19 +22,19 @@ if($_POST['formSubmit'] == "Find Study Partners")
 	if(empty($errorMessage)) 
 	{
 		$fs = fopen("data/mydata.csv","a");
-		fwrite($fs, $varName 		. ", " . $varMajor 			. ", " . 
-					$varSchool 		. ", " . $varEmail 			. ", " . 
-					$varPhone 		. ", " . $varLang 			. ", " . 
+		fwrite($fs, $varID 			. ", " . $varName 			. ", " . 
+					$varMajor 		. ", " . $varEmail 			. ", " . 
+					$varPhone 		. ", " .
 					$varClass 		. ", " . $varNumPartn 		. ", " . 
 					$varLocationOn 	. ", " . $varLocationOff 	. ", " .
-					$varMonTime 	. ", " . $varTueTime 	. ", " .
-					$varWedTime 	. ", " . $varThuTime 	. ", " .
+					$varMonTime 	. ", " . $varTueTime 		. ", " .
+					$varWedTime 	. ", " . $varThuTime 		. ", " .
 					$varFriTime 	. "\n");
 		fclose($fs);
 		
 		//run recommender app
 		
-		header("Location: recommendations.html");
+		header("Location: confirmation.php");
 		exit;
 	}
 }
@@ -58,16 +58,16 @@ if($_POST['formSubmit'] == "Find Study Partners")
 						<form action="form.php" method="post" style="width:inherit">
 								
 								<div class="col2">
+									<input type="text" name="id" placeholder="Bronco Id" value="<?=$varID;?>"/>
 								    <input type="text" name="name" placeholder="Name" value="<?=$varName;?>"/>
 								    <input type="text" name="major" placeholder="Major" value="<?=$varMajor;?>"/>
-								    <input type="text" name="school" placeholder="School" value="<?=$varSchool;?>"/>
 								    <input type="text" name="email" placeholder="Email" value="<?=$varEmail;?>"/>
-								    <input type="text" name="phone" placeholder="Phone Number" value="<?=$varPhone;?>"/>
+								    
 								    
 								</div>
 								
 								<div class="col1">
-									<input type="text" name="language" placeholder="Language" value="<?=$varLang;?>"/>
+									<input type="text" name="phone" placeholder="Phone Number" value="<?=$varPhone;?>"/>
 								    <input type="text" name="class" placeholder="Desired Class" value="<?=$varClass;?>"/>
 								    <input type="text" name="numPartner" placeholder="Max Partners" value="<?=$varNumPartn;?>"/>
 								    Location Preference:<br>
@@ -143,6 +143,7 @@ if($_POST['formSubmit'] == "Find Study Partners")
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html">Home</a></li>
+								<li><a href="about.html">About</a></li>
 								<li><a href="right-sidebar.html">Find Partners</a></li>
 							</ul>
 						</nav>
