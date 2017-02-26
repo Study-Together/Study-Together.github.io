@@ -4,8 +4,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link href="testpopup/elements.css" rel="stylesheet">
-		<script src="testpopup/my_js.js"></script>
+		<link href="testing%20pages/testpopup/elements.css" rel="stylesheet">
+		<script src="testing%20pages/testpopup/my_js.js"></script>
 		
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 		<script type="text/javascript">
@@ -22,6 +22,14 @@
 		        var userRating = this.value;
 		        //alert(userRating);
 		    }); 
+		    
+		    $('#rate').click(function cleck(){
+				var nextURL = "thanks.php?userID=" + userRating + "&partnerID=" + userRating + "&partnerRating=" + userRating;
+				//alert(string);
+				window.location.href = nextURL;
+				return false;
+			});
+
 		});
 		</script>
 	</head>
@@ -85,7 +93,7 @@
 										    	<label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
 										</fieldset>
 										
-										<button id='rate' onclick='rate()'>Rate</button>
+										<button id='rate' onclick='cleck()'>Rate</button>
 									</form>
 								</div>
 							<!-- Popup Div Ends Here -->
