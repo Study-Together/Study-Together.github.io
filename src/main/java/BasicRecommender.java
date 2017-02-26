@@ -9,7 +9,8 @@ public class BasicRecommender {
 
     private static ArrayList<String[]> dataArr;
     public static void readData() throws IOException{
-        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
+//        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
+      BufferedReader dataBR = new BufferedReader(new FileReader("data/mydata.csv"));
         String line = "";
         dataArr = new ArrayList<String[]>();
 
@@ -30,7 +31,8 @@ public class BasicRecommender {
 
     public static void main(String[] args) throws IOException{
         List<String[]> lines = new ArrayList<String[]>();
-        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
+//        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
+        BufferedReader dataBR = new BufferedReader(new FileReader("data/mydata.csv"));
         String thisLine = "";
 
         while ((thisLine = dataBR.readLine()) != null) {
