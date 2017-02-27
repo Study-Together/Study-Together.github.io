@@ -20,7 +20,7 @@ public class CollaborativeFilter {
    * CSV must have the following format:
    * userID,itemID,rating
    */
-  private String ratingsFile = "data/ratings.csv"; // temporary sample ratings
+  private String filePath = "data/ratings.csv"; // temporary sample ratings
 
   private int userID;
   private int recNumber;
@@ -28,14 +28,15 @@ public class CollaborativeFilter {
   private double similarityThreshold = 0.1;
   private DataModel model;
 
-  public CollaborativeFilter(int userID, int recNumber) {
+  public CollaborativeFilter(int userID, int recNumber, String filePath) {
     this.userID = userID;
     this.recNumber = recNumber;
+    this.filePath = filePath;
   }
 
   private void readData() {
     try {
-      this.model = new FileDataModel(new File(ratingsFile));
+      this.model = new FileDataModel(new File(filePath));
     } catch (IOException e) {
       e.printStackTrace();
     }

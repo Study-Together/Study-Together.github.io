@@ -6,8 +6,9 @@ public class TestRecommender {
 
     int userID = 222222;
     int recNumber = 3;
+    String filePath = "src/main/resources/static/data/ratings.csv";
 
-    CollaborativeFilter cf = new CollaborativeFilter(userID, recNumber);
+    CollaborativeFilter cf = new CollaborativeFilter(userID, recNumber, filePath);
     cf.recommend();
 
   }

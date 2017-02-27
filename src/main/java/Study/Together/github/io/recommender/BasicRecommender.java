@@ -11,7 +11,7 @@ public class BasicRecommender {
     private static ArrayList<String[]> dataArr;
     public static void readData() throws IOException{
 //        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
-      BufferedReader dataBR = new BufferedReader(new FileReader("data/mydata.csv"));
+      BufferedReader dataBR = new BufferedReader(new FileReader("src/main/resources/static/data/mydata.csv"));
         String line = "";
         dataArr = new ArrayList<String[]>();
 
@@ -33,7 +33,7 @@ public class BasicRecommender {
     public static void main(String[] args) throws IOException{
         List<String[]> lines = new ArrayList<String[]>();
 //        BufferedReader dataBR = new BufferedReader(new FileReader("/Users/nada/Desktop/mydata.csv"));
-        BufferedReader dataBR = new BufferedReader(new FileReader("data/mydata.csv"));
+        BufferedReader dataBR = new BufferedReader(new FileReader("src/main/resources/static/data/mydata.csv"));
         String thisLine = "";
 
         while ((thisLine = dataBR.readLine()) != null) {
@@ -51,7 +51,7 @@ public class BasicRecommender {
             List<String> suitableDays = new ArrayList<String>();
 
             if(array[i][0] != currentStudent[0]){
-                //System.out.println("not same id");
+//                System.out.println("not same id");
                 if(array[i][5].replaceAll("\\s+","").equals(currentStudent[5])){
                     //System.out.println("same class");
                     if(array[i][7].replaceAll("\\s+","").equals(currentStudent[7]) ||

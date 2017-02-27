@@ -9,12 +9,12 @@ import org.junit.Assert;
 
 public class CollaborativeFilterTest {
 
-  private String ratingsFile = "data/ratings.csv";
+  private String filePath = "src/main/resources/static/data/ratings.csv";
 
   @Test
   public void readDataTest() {
     try {
-      DataModel model = new FileDataModel(new File(ratingsFile));
+      DataModel model = new FileDataModel(new File(filePath));
     } catch (IOException e) {
       e.printStackTrace();
       Assert.fail();
