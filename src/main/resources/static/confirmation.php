@@ -1,3 +1,11 @@
+<?php
+	$errorMessage = "";
+	
+	$userID = $_GET['userID'];
+	$userName = $_GET['userName'];
+	$class = $_GET['class'];
+
+?>
 <html>
 	<head>
 		<title>Study Together</title>
@@ -13,11 +21,22 @@
 
 					<!-- Inner -->
 						<div class="inner">
+						<p>Please confirm the information if correct  </p>
+							<div class="container.\31" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 20px; text-align: left; padding-left: 10px;">
+							
+														
+							Name <?php echo $userName; ?>
+							<br>
+							ID <?php echo $userID; ?>
+							<br>
+							class <?php echo $class; ?>
+							<br>
+							</div>
+							
 							<footer>
 								<a href="#" class="button circled scrolly">Confirm</a>
 							</footer>
-						</div>
-
+</div>
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
@@ -49,6 +68,8 @@
 
 		</div>
 
+		
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -60,4 +81,5 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
+
 </html>

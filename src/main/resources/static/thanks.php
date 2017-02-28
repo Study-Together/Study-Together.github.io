@@ -1,5 +1,3 @@
-
-
 <html>
 	<head>
 		<title>Study Together</title>
@@ -58,7 +56,7 @@
 			
 			if(empty($errorMessage)){
 				//echo $PartnerRating;
-				$fs = fopen("data/ratings2.csv","a");
+				$fs = fopen("data/ratings.csv","a");
 				fwrite($fs, $UserID . ", " . $PartnerID . ", " . 
 							$PartnerRating . "\n");
 				fclose($fs);

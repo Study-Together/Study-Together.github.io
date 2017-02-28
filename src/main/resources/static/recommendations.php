@@ -48,15 +48,18 @@
 								<?php
 									
 								echo "<table>\n\n";
-								$f = fopen("/Users/Nada/Desktop/W17/CS 599 Information Retrieval/Project/Study-Together.github.io/data/recommendations.csv", "r");
-								while (($line = fgetcsv($f)) !== false) {
-								        echo "<tr>";
-								        foreach ($line as $cell) {
-								            echo "<td>" . htmlspecialchars($cell) . "</td>";
-								        }
-								        echo "<td><button id='popup' onclick='div_show()'>Contact</button></td>" ;
+								$f = fopen("/Users/Nada/Desktop/Study-Together.github.io/src/main/resources/static/data/recommendations.csv", "r");
+								$columns = array(1,6,8,9,10,11,12,13,14,15);
+								while (($data = fgetcsv($f, 1000, ",")) !== FALSE) {
+						        echo("<tr>\r\n");
+						        foreach ($data as $index=>$val) {
+						                if (in_array($index+1, $columns)) {
+						                        echo("\t<td>$val</td>\r\n");
+						                }
+						        }
+						         echo "<td><button id='popup' onclick='div_show()'>Contact</button></td>" ;
 								        echo "</tr>\n";
-								}
+						        }
 								fclose($f);
 								echo "\n</table>";
 								?>
