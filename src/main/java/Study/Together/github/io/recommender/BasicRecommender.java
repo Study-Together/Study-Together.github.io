@@ -1,15 +1,9 @@
 package Study.Together.github.io.recommender;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class BasicRecommender {
+public class BasicRecommender extends Recommender {
 
   private static final int STUDENT_NAME = 0;
   private static final int UNIVERSITY = 2;
@@ -24,32 +18,19 @@ public class BasicRecommender {
 
   private static final int SIMILARITY_CONSTANT = 10;
 
-  private String profilesFilePath = "src/main/resources/static/data/profiles.csv";
-  private String recommendationsFilePath = "src/main/resources/static/data/recommendations2.csv";
-
-  private List<String[]> lines;
-  private List<String[]> suitablePartners;
   private String[] currentStudent;
 
   public BasicRecommender() {
     super();
-    this.lines = new ArrayList<String[]>();
-    this.suitablePartners = new ArrayList<String[]>();
   }
 
   public BasicRecommender(String[] currentStudent) {
     super();
     this.currentStudent = currentStudent;
-    this.lines = new ArrayList<String[]>();
-    this.suitablePartners = new ArrayList<String[]>();
   }
 
   public void setCurrentStudent(String[] currentStudent) {
     this.currentStudent = currentStudent;
-  }
-
-  public void setFilePath(String filePath) {
-    this.profilesFilePath = filePath;
   }
 
   public void recommend() {
@@ -60,7 +41,6 @@ public class BasicRecommender {
     lines.toArray(array);
 
     for (int i = 0; i < lines.size(); i++) {
-//      suitablePartners = new ArrayList<String[]>();
       List<String> suitableDays = new ArrayList<String>();
       int similarity = 0;
       if(array[i][STUDENT_ID] != currentStudent[STUDENT_ID]){
@@ -92,8 +72,7 @@ public class BasicRecommender {
         array[i][SIMILARITY] = Integer.toString(similarity) + "%";
         if(!suitableDays.isEmpty()){
           suitablePartners.add(lines.get(i));
-          System.out.println(array[i][STUDENT_NAME] + " and " + currentStudent[STUDENT_NAME] + " can study together");
-          System.out.print("suitable: ");
+
           String[] temp = lines.get(i);
           for (int j = 0; j < temp.length; ++j) {
             if (j != 0) {
@@ -106,39 +85,7 @@ public class BasicRecommender {
     }
 
     outputData();
+    System.out.println("Done writing from Basic Recommender");
   }
 
-  private void outputData() {
-    try {
-      FileWriter writer = new FileWriter(recommendationsFilePath);
-      for (String[] partner : suitablePartners) {
-        CSVUtils.writeLine(writer, Arrays.asList(partner));
-      }
-
-      writer.flush();
-      writer.close();
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private void readData() {
-    BufferedReader dataBR;
-
-    try {
-      dataBR = new BufferedReader(new FileReader(profilesFilePath));
-      String thisLine = "";
-
-      while ((thisLine = dataBR.readLine()) != null) {
-          lines.add(thisLine.split(","));
-      }
-      dataBR.close();
-
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
 }

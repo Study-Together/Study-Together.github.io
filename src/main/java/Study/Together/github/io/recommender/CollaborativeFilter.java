@@ -21,7 +21,7 @@ public class CollaborativeFilter {
    * CSV must have the following format:
    * userID,itemID,rating
    */
-  private String filePath = "data/rating.csv"; // temporary sample ratings
+  private String ratingsFilePath = "src/main/resources/static/data/ratings2.csv"; // temporary sample ratings
 
   private int userID;
   private int recNumber;
@@ -33,15 +33,17 @@ public class CollaborativeFilter {
     super();
   }
 
-  public CollaborativeFilter(int userID, int recNumber, String filePath) {
+  public CollaborativeFilter(int userID, int recNumber) {
     this.userID = userID;
     this.recNumber = recNumber;
-    this.filePath = filePath;
   }
 
-  private void readData() {
+  /**
+   * Pull relevant data from profiles.csv to ratings.csv
+   */
+  private void readRatings() {
     try {
-      this.model = new FileDataModel(new File(filePath));
+      this.model = new FileDataModel(new File(ratingsFilePath));
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -49,7 +51,7 @@ public class CollaborativeFilter {
 
   public void recommend() {
 
-    readData();
+    readRatings();
 
     try {
       UserSimilarity similarity = new PearsonCorrelationSimilarity(this.model);
