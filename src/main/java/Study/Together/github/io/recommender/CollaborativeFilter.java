@@ -1,4 +1,5 @@
 package Study.Together.github.io.recommender;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -20,13 +21,17 @@ public class CollaborativeFilter {
    * CSV must have the following format:
    * userID,itemID,rating
    */
-  private String filePath = "data/ratings.csv"; // temporary sample ratings
+  private String filePath = "data/rating.csv"; // temporary sample ratings
 
   private int userID;
   private int recNumber;
 
   private double similarityThreshold = 0.1;
   private DataModel model;
+
+  public CollaborativeFilter() {
+    super();
+  }
 
   public CollaborativeFilter(int userID, int recNumber, String filePath) {
     this.userID = userID;

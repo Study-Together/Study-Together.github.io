@@ -11,6 +11,13 @@ public class TestRecommender {
     CollaborativeFilter cf = new CollaborativeFilter(userID, recNumber, filePath);
     cf.recommend();
 
+    String[] currentStudent = {"Nada Alghofaili", "CS", "CPP", "nalghofaili@gmail.com",
+        "9493108775", "English", "CS599","2", "On", "Off", "evening", "morning", "evening", "morning", "none" };
+
+    BasicRecommender br = new BasicRecommender();
+    br.setCurrentStudent(currentStudent);
+    br.recommend();
+
   }
 
 }
