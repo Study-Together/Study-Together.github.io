@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/elements.css" />
+  <link rel="stylesheet" href="assets/css/TestPopUp.css">
   </head>
   <body class="homepage">
     <div id="page-wrapper">
@@ -23,9 +24,21 @@
                 <div id="myCFTable"></div>
               </div>
 
-              <div id="abc">
+            <!--  <div id="abc">-->
                 <!-- Popup Div Starts Here -->
-                <div id="popupContact">
+
+                        <!-- The Modal -->
+                
+        <div id="myModal" class="modal" style="color: black;">
+
+          <!-- Modal content -->
+          <div class="modal-content" style="color : black;">
+          <span class="close">&times;</span>
+
+              <img id="close" src="images/close.png" onclick ="div_hide()">
+<button id="myBtn">Rate</button>
+
+               <!-- <div id="popupContact">-->
                   <!-- Contact Us Form -->
                   <form action="#" id="form" method="post" name="form">
                     <img id="close" src="images/close.png" onclick ="div_hide()">
@@ -55,6 +68,7 @@
 
                     <button id='rate' onclick='click()'>Rate</button>
                   </form>
+               
                 </div>
               <!-- Popup Div Ends Here -->
             </div>
@@ -102,6 +116,7 @@
       <script src="assets/js/util.js"></script>
       <script src="assets/js/main.js"></script>
       <script src="assets/js/my_js.js"></script>
+      <script src="assets/js/Testpop.js"></script>
 
     <script type="text/javascript">
     //run recommendations program
