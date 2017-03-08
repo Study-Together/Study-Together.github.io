@@ -1,6 +1,7 @@
 package Study.Together.github.io.controller;
 
 import Study.Together.github.io.recommender.BasicRecommender;
+import Study.Together.github.io.recommender.IntegratedRecommender;
 import au.com.bytecode.opencsv.CSVWriter;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,7 @@ public class WebController {
 	String getRecommendations() {
 		String line, last = "";
 		try {
-			BufferedReader input = new BufferedReader(new FileReader(new File("src/main/resources/static/data/ratings.csv")));
+			BufferedReader input = new BufferedReader(new FileReader(new File("src/main/resources/static/data/profiles.csv")));
 			while ((line = input.readLine()) != null) {
 				last = line;
 			}
@@ -46,9 +47,11 @@ public class WebController {
 		}
 
 		String[] currentStudent = last.split(",");
-		BasicRecommender br = new BasicRecommender();
-		br.setCurrentStudent(currentStudent);
-		br.recommend();
+		for(int i =0; i < currentStudent.length; i++){
+			currentStudent[i] = currentStudent[i].trim();
+		}
+		IntegratedRecommender ir = new IntegratedRecommender(currentStudent);
+		ir.outputRecommendations();
 
 		return "OK";
 	}
