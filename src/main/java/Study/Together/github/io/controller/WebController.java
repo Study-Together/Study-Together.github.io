@@ -22,10 +22,12 @@ public class WebController {
 		String usersFilePath = "src/main/resources/static/data/profiles.csv";
 		CSVWriter writer = null;
 		String[] record = userInfo.split(",");
+		record[4]=record[4].substring(record[4].length() - 6); //write 6 last charachters as ID
 
 		try {
-			writer = new CSVWriter(new FileWriter(usersFilePath, true), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
+			writer = new CSVWriter(new FileWriter(usersFilePath, true), ',', CSVWriter.NO_QUOTE_CHARACTER);
 			writer.writeNext(record);
+			writer.flush();
 			writer.close();
 
 		} catch (IOException e) {
@@ -49,6 +51,9 @@ public class WebController {
 		String[] currentStudent = last.split(",");
 		for(int i =0; i < currentStudent.length; i++){
 			currentStudent[i] = currentStudent[i].trim();
+			/*if(i==4){
+
+			}*/
 		}
 		IntegratedRecommender ir = new IntegratedRecommender(currentStudent);
 		ir.outputRecommendations();
@@ -63,7 +68,7 @@ public class WebController {
 		String[] record = ratingInfo.split(",");
 
 		try {
-			writer = new CSVWriter(new FileWriter(csv, true), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
+			writer = new CSVWriter(new FileWriter(csv, true), ',', CSVWriter.NO_QUOTE_CHARACTER);
 			writer.writeNext(record);
 			writer.close();
 		} catch (IOException e) {
