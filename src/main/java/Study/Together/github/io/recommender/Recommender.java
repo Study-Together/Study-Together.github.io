@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class Recommender {
 
   private String profilesFilePath = "src/main/resources/static/data/profiles.csv";
-  private String recommendationsFilePath = "src/main/resources/static/data/recommendations2.csv";
+  private String recommendationsFilePath = "src/main/resources/static/data/recommendations.csv";
 
   protected List<String[]> lines = new ArrayList<String[]>();
   protected List<String[]> suitablePartners = new ArrayList<String[]>();

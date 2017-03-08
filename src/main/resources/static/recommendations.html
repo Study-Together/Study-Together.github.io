@@ -4,8 +4,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link href="assets/css/elements.css" rel="stylesheet">
-</head>
+		<link rel="stylesheet" href="assets/css/elements.css" />
+	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
 			<!-- Header -->
@@ -15,8 +15,7 @@
 						<div class="inner" >
 							<p>The System Recommends The Following Classmates:</p>
 							<div class="container.\31" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; text-align: left; padding-left: 10px;">
-
-
+								<div id="myTable"></div>
 							</div>
 							
 							<div id="abc">
@@ -61,6 +60,7 @@
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html">Home</a></li>
+								<li><a href="index.html#main">About</a></li>
 								<li><a href="form.html">Find Partners</a></li>
 							</ul>
 						</nav>
@@ -89,6 +89,7 @@
 		</div>
 
 		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.onvisible.min.js"></script>
@@ -96,15 +97,45 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/my_js.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
-		<script src="assets/js/jquery.min.js"></script>
 
 		<script type="text/javascript">
-		//HTTP /get recommendations
+		//run recommendations program
 
 		//print table
-
-
+		$.get('data/recommendations2.csv', function(data) {
+			var html = '<table class="table table-bordered">';
+			var rows = data.split("\n");
+				html += "<tr>";
+				html += "<td>Name</td>";
+				html += "<td>Major</td>";
+				html += "<td>On Campus</td>";
+				html += "<td>Off Campus</td>";
+				html += "<td>Monday</td>";
+				html += "<td>Tuesday</td>";
+				html += "<td>Wednesday</td>";
+				html += "<td>Thrusday</td>";
+				html += "<td>Friday</td>";
+				html += "<td>Similarity</td>";
+				html += "</tr>";
+			rows.forEach(function getvalues(ourrow) {
+				html += "<tr>";
+				var columns = ourrow.split(",");
+				html += "<td>" + columns[0] + "</td>";
+				html += "<td>" + columns[1] + "</td>";
+				html += "<td>" + columns[6] + "</td>";
+				html += "<td>" + columns[7] + "</td>";
+				html += "<td>" + columns[8] + "</td>";
+				html += "<td>" + columns[9] + "</td>";
+				html += "<td>" + columns[10] + "</td>";
+				html += "<td>" + columns[11] + "</td>";
+				html += "<td>" + columns[12] + "</td>";
+				html += "<td>" + columns[13] + "</td>";
+				html += "<td><button id='popup' onclick='div_show()' class='otherButton'>Contact</button></td>";
+				html += "</tr>";
+			})
+			html += "</table>";
+			$('#myTable').append(html);
+		});
 
 		$(document).ready(function(){
 		//  Check Radio-box
@@ -116,24 +147,31 @@
 
 		    $('input:radio').change(
 		    function(){
-		        var userPartner = this.value;
-		        //alert(userRating);
+		        var partnerRating = this.value;
 		    });
+
+			var a = document.getElementsByClassName('otherButton');
+			for (var i = 0; i<a.length;i++) {
+				a[i].addEventListener('click',function(){
+				 var b = this.parentNode.parentNode.cells[0].textContent;
+				alert(b);
+				});
+			}
+
+			var ratingInfo = userId + "," + partnerId + "," + partnerRating;
 
 		    $('#rate').click(function click(){
 		    	$.ajax(
 				{
 					type : "POST",
-					url  : "/ratePartner/" + userId,
+					url  : "/addRating/" + ratingInfo,
 					data : {
-						"partnerID" : partnerID,
-						"partnerRating" : partnerRating
 					},
 					success : function(result) {
 						window.location = "/index.html"
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to add the user. Please check the inputs." + jqXHR.textStatus);
+						alert("Failed to add ratings. Please check the inputs. " + jqXHR.textStatus);
 					}
 				});
 

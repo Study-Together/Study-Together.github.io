@@ -1,10 +1,11 @@
 package Study.Together.github.io.controller;
 
+import Study.Together.github.io.recommender.BasicRecommender;
 import au.com.bytecode.opencsv.CSVWriter;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.sql.ResultSet;
 
 @RestController
 public class WebController {
@@ -14,18 +15,15 @@ public class WebController {
 		return "OK";
 	}
 
-	@RequestMapping(value = "/addUser/{userId}", method = RequestMethod.POST)
-	String addUser(@PathVariable("userId") String userId,
-				   @RequestParam("info") String allInfo) {
+	@RequestMapping(value = "/addUser/{userInfo}", method = RequestMethod.POST)
+	String addUser(@PathVariable("userInfo") String userInfo) {
 
-		String csv = "";//"../resources/static/data/UsersData.csv";
+		String usersFilePath = "src/main/resources/static/data/profiles.csv";
 		CSVWriter writer = null;
-
-		String userInfo = userId+","+allInfo;
 		String[] record = userInfo.split(",");
 
 		try {
-			writer = new CSVWriter(new FileWriter(csv, true));
+			writer = new CSVWriter(new FileWriter(usersFilePath, true), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
 			writer.writeNext(record);
 			writer.close();
 
@@ -35,27 +33,36 @@ public class WebController {
 		return "done";
 	}
 
-	@RequestMapping(value = "/getRecommendations/{userId}", method = RequestMethod.GET)
-	String getRecommendations(@PathVariable("userId") String userId) {
+	@RequestMapping(value = "/getRecommendations", method = RequestMethod.GET)
+	String getRecommendations() {
+		String line, last = "";
+		try {
+			BufferedReader input = new BufferedReader(new FileReader(new File("src/main/resources/static/data/ratings.csv")));
+			while ((line = input.readLine()) != null) {
+				last = line;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		String[] currentStudent = last.split(",");
+		BasicRecommender br = new BasicRecommender();
+		br.setCurrentStudent(currentStudent);
+		br.recommend();
+
 		return "OK";
 	}
 
-	@RequestMapping(value = "/ratePartners/{userId}", method = RequestMethod.POST)
-	String ratePartners(@PathVariable("userId") String userId,
-				   		@RequestParam("partnerID") String partnerID,
-						@RequestParam("partnerRating") String partnerRating) {
-
-		String csv = "../resources/static/data/UsersRatings.csv";
+	@RequestMapping(value = "/addRating/{ratingInfo}", method = RequestMethod.GET)
+	String addRating(@PathVariable("ratingInfo") String ratingInfo) {
+		String csv = "src/main/resources/static/data/ratings.csv";
 		CSVWriter writer = null;
-
-		String userInfo = userId+","+partnerID+","+partnerRating;
-		String[] record = userInfo.split(",");
+		String[] record = ratingInfo.split(",");
 
 		try {
-			writer = new CSVWriter(new FileWriter(csv, true));
+			writer = new CSVWriter(new FileWriter(csv, true), CSVWriter.DEFAULT_SEPARATOR, CSVWriter.NO_QUOTE_CHARACTER);
 			writer.writeNext(record);
 			writer.close();
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

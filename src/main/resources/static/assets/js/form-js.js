@@ -1,9 +1,11 @@
 function addUser() {
 
-	var userId = $('#id').val();
 	var userName = $('#name').val();
 	var userMajor = $('#major').val();
+	var userSchool = $('#school').val();
 	var userEmail = $('#email').val();
+	var userPhone = $('#phone').val();
+	var userLanguage = $('#language').val();
 	var userClass = $('#class').val();
 	var userPartNum = $('#numPartner').val();
 	var userLocation1 = $('#location1').val();
@@ -14,26 +16,29 @@ function addUser() {
     var userThuTime = $('#ThuTime option:selected').val();
     var userFriTime = $('#FriTime option:selected').val();
 
-    var info = userName+","+userMajor+","+userEmail+","+userClass+","+userPartNum+","+
-                userLocation1+","+userLocation2+","+userMonTime +","+userTueTime+","+
-                userWedTime+","+userThuTime+","+userFriTime;
+    var userInfo = userName+","+userMajor+","+userSchool+","+userEmail+","+userPhone+","+","+
+                   userLanguage+","+userClass+","+userPartNum+","+ userLocation1+","+userLocation2+","+
+                   userMonTime +","+ userTueTime+","+ userWedTime+","+userThuTime+","+userFriTime+",0";
 
-	if (userId) {
+    var myUrl = "/addUser/" + userInfo;
+    //alert(myUrl);
+
+	if (userName) {
 		$.ajax(
 				{
 					type : "POST",
-					url  : "/addUser/" + userId,
+					url  : myUrl,
 					data : {
-						"info" : info
 					},
 					success : function(result) {
 						window.location = "/recommendations.html"
 					},
 					error: function (jqXHR, exception) {
-						alert("Failed to add the user. Please check the inputs." + jqXHR.textStatus);
+					    window.location.href = "/recommendations.html"
+						//alert("Failed to add the user. Please check the inputs. " + jqXHR.textStatus);
 					}
 				});
 	} else {
 		alert("Invalid User Id");
 	}
-}
+};

@@ -21,7 +21,7 @@ public class CollaborativeFilter {
    * CSV must have the following format:
    * userID,itemID,rating
    */
-  private String ratingsFilePath = "src/main/resources/static/data/ratings2.csv"; // temporary sample ratings
+  private String ratingsFilePath = "src/main/resources/static/data/ratings.csv"; // temporary sample ratings
 
   private int userID;
   private int recNumber;
