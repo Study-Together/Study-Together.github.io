@@ -16,7 +16,7 @@ function addUser() {
     var userThuTime = $('#ThuTime option:selected').val();
     var userFriTime = $('#FriTime option:selected').val();
 
-    var userInfo = userName+","+userMajor+","+userSchool+","+userEmail+","+userPhone+","+","+
+    var userInfo = userName+","+userMajor+","+userSchool+","+userEmail+","+userPhone+","+
                    userLanguage+","+userClass+","+userPartNum+","+ userLocation1+","+userLocation2+","+
                    userMonTime +","+ userTueTime+","+ userWedTime+","+userThuTime+","+userFriTime+",0";
 

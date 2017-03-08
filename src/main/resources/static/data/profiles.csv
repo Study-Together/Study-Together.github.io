@@ -1,9 +1,10 @@
-A, CS, CPP, A@gmail.com,900010, English, CS599,2, , Off, evening, none, none, morning, none,0,5
-B, CS, CPP, B@gmail.com,900011, English, CS599,3, On, , afternoon, morning, afternoon, morning, none,0,4
-C, CS, CPP, C@gmail.com,900012, English, CS599,1, , Off, none, evening, none, afternoon, evening,0,1
-D, CS, CPP, D@gmail.com,900013, English, CS599,2, , Off, morning, none, afternoon, morning, morning,0,4
-E, CS, CPP, E@gmail.com,900014, English, CS599,4, On, Off, none, morning, morning, evening, none,0,2
-F, CS, CPP, F@gmail.com,900015, English, CS599,3, On, , evening, none, afternoon, afternoon, evening,0,4
-G, CS, CPP, G@gmail.com,900016, English, CS599,1, , Off, morning, morning, afternoon, morning, afternoon,0,2
-H, CS, CPP, H@gmail.com,900017, English, CS599,1, On, Off, afternoon, none, none, morning, none,0,3
-I, CS, CPP, I@gmail.com,900018, English, CS599,2, , Off, none, morning, afternoon, afternoon, afternoon,0,1
+A, CS, CPP, A@gmail.com,900010, English, CS599,2, , Off, evening, none, none, morning, none,0,5,,,,,,,,,,,,,,,,
+B, CS, CPP, B@gmail.com,900011, English, CS599,3, On, , afternoon, morning, afternoon, morning, none,0,4,,,,,,,,,,,,,,,,
+C, CS, CPP, C@gmail.com,900012, English, CS599,1, , Off, none, evening, none, afternoon, evening,0,1,,,,,,,,,,,,,,,,
+D, CS, CPP, D@gmail.com,900013, English, CS599,2, , Off, morning, none, afternoon, morning, morning,0,4,,,,,,,,,,,,,,,,
+E, CS, CPP, E@gmail.com,900014, English, CS599,4, On, Off, none, morning, morning, evening, none,0,2,,,,,,,,,,,,,,,,
+F, CS, CPP, F@gmail.com,900015, English, CS599,3, On, , evening, none, afternoon, afternoon, evening,0,4,,,,,,,,,,,,,,,,
+G, CS, CPP, G@gmail.com,900016, English, CS599,1, , Off, morning, morning, afternoon, morning, afternoon,0,2,,,,,,,,,,,,,,,,
+H, CS, CPP, H@gmail.com,900017, English, CS599,1, On, Off, afternoon, none, none, morning, none,0,3,,,,,,,,,,,,,,,,
+I, CS, CPP, I@gmail.com,900018, English, CS599,2, , Off, none, morning, afternoon, afternoon, afternoon,0,1,,,,,,,,,On,Off,morning,morning,morning,morning,morning,0j,j,j,j,j,,j,j,j,On,Off,morning,morning,morning,morning,morning,0
+f,f,f,f,f,,f,f,f,On,Off,morning,morning,morning,morning,morning,0
