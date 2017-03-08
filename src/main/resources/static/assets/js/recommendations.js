@@ -29,7 +29,7 @@
         html += "<td>" + columns[13] + "</td>";
         html += "<td>" + columns[14] + "</td>";
         html += "<td>" + columns[15] + "</td>";
-        html += "<td><button id='popup' onclick='div_show()' class='otherButton'>Contact</button></td>";
+        html += "<td><button id='popup' onclick='div_show()' class='otherButton'>Rate</button></td>";
         html += "</tr>";
       })
       html += "</table>";
@@ -65,7 +65,7 @@
         html += "<td>" + columns[13] + "</td>";
         html += "<td>" + columns[14] + "</td>";
         html += "<td>" + columns[16] + "</td>";
-        html += "<td><button id='myBtn'>Rate</button></td>";
+        html += "<td><button id='popup' onclick='div_show()' class='otherButton'>Rate</button></td>";
         html += "</tr>";
       })
       html += "</table>";
