@@ -1,6 +1,6 @@
-E, CS, CPP, E@gmail.com,900014, English, CS599,4, On, Off, none, morning, morning, evening, none,0,2
-C, CS, CPP, C@gmail.com,900012, English, CS599,1, , Off, none, evening, none, afternoon, evening,0,1
-G, CS, CPP, G@gmail.com,900016, English, CS599,1, , Off, morning, morning, afternoon, morning, afternoon,0,2
-D, CS, CPP, D@gmail.com,900013, English, CS599,2, , Off, morning, none, afternoon, morning, morning,0,4
-F, CS, CPP, F@gmail.com,900015, English, CS599,3, On, , evening, none, afternoon, afternoon, evening,0,4
-H, CS, CPP, H@gmail.com,900017, English, CS599,1, On, Off, afternoon, none, none, morning, none,0,3
+E, CS, CPP, E@gmail.com,900014, English, CS599,4, On, Off, none, morning, morning, evening, none,0,5.0
+C, CS, CPP, C@gmail.com,900012, English, CS599,1, , Off, none, evening, none, afternoon, evening,0,4.75
+G, CS, CPP, G@gmail.com,900016, English, CS599,1, , Off, morning, morning, afternoon, morning, afternoon,0,4.75
+D, CS, CPP, D@gmail.com,900013, English, CS599,2, , Off, morning, none, afternoon, morning, morning,0,4.5
+F, CS, CPP, F@gmail.com,900015, English, CS599,3, On, , evening, none, afternoon, afternoon, evening,0,3.75
+H, CS, CPP, H@gmail.com,900017, English, CS599,1, On, Off, afternoon, none, none, morning, none,0,2.5

@@ -111,9 +111,11 @@ public class CollaborativeFilter extends Recommender {
       List<RecommendedItem> recommendations = recommender.recommend(this.userID, this.recNumber);
       for (RecommendedItem recommendation : recommendations) {
         System.out.println(recommendation);
-        System.out.println("ID: " + Long.toString(recommendation.getItemID()));
         int index = map.get(Long.toString(recommendation.getItemID()));
-        suitablePartners.add(lines.get(index));
+
+        String[] student = lines.get(index);
+        student[RATING] = Float.toString(recommendation.getValue());
+        suitablePartners.add(student);
       }
 
       System.out.println(suitablePartners.size());
