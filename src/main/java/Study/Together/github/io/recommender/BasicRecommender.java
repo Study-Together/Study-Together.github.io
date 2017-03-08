@@ -5,19 +5,6 @@ import java.util.List;
 
 public class BasicRecommender extends Recommender {
 
-  private static final int STUDENT_NAME = 0;
-  private static final int UNIVERSITY = 2;
-  private static final int STUDENT_ID = 4;
-  private static final int LANGUAGE = 5;
-  private static final int DESIRED_CLASS = 6;
-  private static final int ON_CAMPUS = 7;
-  private static final int OFF_CAMPUS = 8;
-  private static final int MONDAY = 9;
-  private static final int FRIDAY = 14;
-  private static final int SIMILARITY = 15;
-
-  private static final int SIMILARITY_CONSTANT = 10;
-
   private String[] currentStudent;
 
   public BasicRecommender() {
@@ -84,7 +71,7 @@ public class BasicRecommender extends Recommender {
       }
     }
 
-    outputData();
+//    outputData();
     System.out.println("Done writing from Basic Recommender");
   }
 
